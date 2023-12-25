@@ -2,8 +2,7 @@
 [redis-bitnami-custom-module](https://github.com/Saeedb7203/redis-bitnami-custom-module.git)
 
 Some files were modified to make it work
-
-
+https://github.com/Saeedb7203/redis-bitnami-custom-module/blame/f5adf3a01d992e1ac6038bb1017d7eaeb093ef7c/redis-bitnami-helm-chart-custom-module/values.yaml#L94-L97
 To run
 ```bash
 git clone https://github.com/Saeedb7203/redis-bitnami-custom-module.git
