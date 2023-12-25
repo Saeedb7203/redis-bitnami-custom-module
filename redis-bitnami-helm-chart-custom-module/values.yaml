@@ -93,7 +93,7 @@ diagnosticMode:
 ##
 image:
   registry: docker.io
-  repository: saeedb7203/redis-server-costomize-module
+  repository: saeedb7203/redis-server-customized-module
   tag: 23.12.25
   digest: ""
   ## Specify a imagePullPolicy
@@ -1070,7 +1070,7 @@ sentinel:
   ##
   image:
     registry: docker.io
-    repository: saeedb7203/redis-sentinel-costomize-module
+    repository: saeedb7203/redis-sentinel-customized-module
     tag: 23.12.25
     digest: ""
     ## Specify a imagePullPolicy
