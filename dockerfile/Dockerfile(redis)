@@ -1,0 +1,18 @@
+FROM redislabs/redisearch:2.6.13 AS searchmoduleimg
+FROM redislabs/rejson:2.6.8 AS jsonmoduleimg
+FROM bitnami/redis:7.2.3-debian-11-r2
+
+
+### My customization
+RUN mkdir /opt/bitnami/redis/modules
+COPY --from=searchmoduleimg /usr/lib/redis/modules/redisearch.so* /opt/bitnami/redis/modules
+COPY --from=jsonmoduleimg /usr/lib/redis/modules/rejson.so* /opt/bitnami/redis/modules
+
+### End of
+
+
+EXPOSE 6379
+
+USER 1001
+ENTRYPOINT [ "/opt/bitnami/scripts/redis/entrypoint.sh" ]
+CMD [ "/opt/bitnami/scripts/redis/run.sh"]

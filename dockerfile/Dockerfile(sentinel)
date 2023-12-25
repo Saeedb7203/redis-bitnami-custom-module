@@ -1,0 +1,16 @@
+FROM redislabs/redisearch:2.6.13 AS searchmoduleimg
+FROM redislabs/rejson:2.6.8 AS jsonmoduleimg
+FROM bitnami/redis-sentinel:7.2.3-debian-11-r2
+
+
+### My customization
+RUN mkdir /opt/bitnami/redis-sentinel/modules
+COPY --from=searchmoduleimg /usr/lib/redis/modules/redisearch.so* /opt/bitnami/redis-sentinel/modules
+COPY --from=jsonmoduleimg /usr/lib/redis/modules/rejson.so* /opt/bitnami/redis-sentinel/modules
+
+### End of
+EXPOSE 26379
+
+USER 1001
+ENTRYPOINT [ "/opt/bitnami/scripts/redis-sentinel/entrypoint.sh" ]
+CMD [ "/opt/bitnami/scripts/redis-sentinel/run.sh" ]
